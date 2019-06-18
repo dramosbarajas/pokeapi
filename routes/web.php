@@ -14,3 +14,5 @@
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('/pokemon/{limit?}', 'pokeController@getAllPokemon')->where('limit', '[0-9]+');

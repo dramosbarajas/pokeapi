@@ -4,8 +4,6 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use GuzzleHttp\Client;
-use Illuminate\Support\Facades\Input;
-
 
 class pokeController extends Controller
 {
@@ -23,8 +21,8 @@ class pokeController extends Controller
            $response =  $this->filterResponse(json_decode($response->getBody()->getContents()));
            array_push($arrayResponse, $response); 
         }
-        //return $arrayResponse;
-        return view('index', compact('arrayResponse'));
+  
+        return response()->json($arrayResponse);
     }
 
     //Recupera un unico pokemon
